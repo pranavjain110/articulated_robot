@@ -27,7 +27,9 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Build Image
-        run:  bash build-image-local.sh
+        run: |
+          cd humble  
+          bash build-image-local.sh
           
       - name : Push Image
         run: |
