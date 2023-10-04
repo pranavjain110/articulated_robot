@@ -17,6 +17,7 @@ docker  run -it \
         --env="QT_X11_NO_MITSHM=1" \
         --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
         --volume="$PWD/.ros/log/:/root/.ros/log/" \
+        --volume="$PWD/workspace/src/my_bot/:/root/workspace/src/my_bot/" \
         --env=NVIDIA_VISIBLE_DEVICES=all \
         --env=NVIDIA_DRIVER_CAPABILITIES=all \
         humble-image-pc\
