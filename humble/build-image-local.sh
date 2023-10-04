@@ -6,3 +6,10 @@ BUILT_IMAGE="humble-image-pc"
 echo "Building image from Dockerfile..."
 echo "First DOCKER Build"
 docker build --no-cache . --build-arg GIT_PAT="$PAT" -t "$BUILT_IMAGE" || { echo "Error: Docker build failed"; exit 1; }
+
+
+DANGLING_IMAGES=$(docker images -f "dangling=true" -q)
+if [[ -n "$DANGLING_IMAGES" ]]; then
+	echo "Remove dangling images"
+    docker rmi -f $DANGLING_IMAGES || { echo "Error: Failed to remove dangling images"; exit 1; }
+fi
