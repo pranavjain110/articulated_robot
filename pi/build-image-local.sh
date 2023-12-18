@@ -1,12 +1,12 @@
-branch_name="master"
+branch_name="raspi"
 docker pull ghcr.io/pranavjain110/ros2_docker/ros2-humble-image-built/${branch_name}:latest
-docker tag ghcr.io/pranavjain110/ros2_docker/ros2-humble-image-built/${branch_name}:latest ros2-humble-image-built
+docker tag ghcr.io/pranavjain110/ros2_docker/ros2-humble-image-built/${branch_name}:latest ros2-humble-image-built-raspi
 
-BUILT_IMAGE="humble-image-pc"
+BUILT_IMAGE="humble-image-raspi"
 
 echo "Building image from Dockerfile..."
 echo "First DOCKER Build"
-docker build --no-cache . --build-arg GIT_PAT="$PAT" -t "$BUILT_IMAGE" || { echo "Error: Docker build failed"; exit 1; }
+docker build --no-cache . -f pi.Dockerfile  --build-arg GIT_PAT="$PAT" -t "$BUILT_IMAGE" || { echo "Error: Docker build failed"; exit 1; }
 
 
 DANGLING_IMAGES=$(docker images -f "dangling=true" -q)
