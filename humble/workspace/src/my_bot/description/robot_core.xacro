@@ -31,27 +31,27 @@
     <joint name="chassis_joint" type="fixed">
         <parent link="base_link"/>
         <child link="chassis"/>
-        <origin xyz="-0.055 0 0"/>
+        <origin xyz="-0.125 0 0"/>
     </joint>
 
     <link name="chassis">
         <visual>
-            <origin xyz="0.1025 0 0.0425"/>
+            <origin xyz="0.185 0 0.07"/>
             <geometry>
-                <box size="0.205 0.125 0.085"/>
+                <box size="0.370 0.230 0.140"/>
             </geometry>
             <material name="white"/>
         </visual>
 
         <collision>
-            <origin xyz="0.1025 0 0.0425"/>
+            <origin xyz="0.185 0 0.07"/>
             <geometry>
-                <box size="0.205 0.125 0.085"/>
+                <box size="0.370 0.230 0.140"/>
             </geometry>
         </collision>
 
-        <xacro:inertial_box mass = "0.5" x = "0.205" y = "0.125" z = "0.085">
-            <origin xyz="0.1025 0 0.0425" rpy = "0 0 0"/>
+        <xacro:inertial_box mass = "1.4" x = "0.370" y = "0.230" z = "0.140">
+            <origin xyz="0.185 0 0.07" rpy = "0 0 0"/>
         </xacro:inertial_box> 
     </link>
     
@@ -64,7 +64,7 @@
     <joint name="left_wheel_joint" type="continuous">
         <parent link="base_link"/>
         <child link="left_wheel"/>
-        <origin xyz="0 0.080 0" rpy="-${pi/2} 0 0" />
+        <origin xyz="0 0.120 0" rpy="-${pi/2} 0 0" />
         <axis xyz="0 0 1"/>
     </joint>
 
@@ -94,7 +94,7 @@
     <joint name="right_wheel_joint" type="continuous">
         <parent link="base_link"/>
         <child link="right_wheel"/>
-        <origin xyz="0 -0.080 0" rpy="${pi/2} 0 0" />
+        <origin xyz="0 -0.120 0" rpy="${pi/2} 0 0" />
         <axis xyz="0 0 -1"/>
     </joint>
 
@@ -123,7 +123,7 @@
     <joint name="castor_wheel_joint" type="fixed">
         <parent link="chassis"/>
         <child link="castor_wheel"/>
-        <origin xyz="0.165 0 0"/>
+        <origin xyz="0.270 0 0"/>
     </joint>
 
     <link name="castor_wheel">
