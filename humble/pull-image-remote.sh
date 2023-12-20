@@ -1,6 +1,5 @@
-branch_name="master"
-docker pull ghcr.io/pranavjain110/articulated_robot/humble-image-pc/${branch_name}:latest
-docker tag ghcr.io/pranavjain110/articulated_robot/humble-image-pc/${branch_name}:latest humble-image-pc
+docker pull ghcr.io/pranavjain110/articulated_robot/humble-image-pc:latest
+docker tag ghcr.io/pranavjain110/articulated_robot/humble-image-pc:latest humble-image-pc
 
 DANGLING_IMAGES=$(docker images -f "dangling=true" -q)
 if [[ -n "$DANGLING_IMAGES" ]]; then
