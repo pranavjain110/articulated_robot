@@ -1,4 +1,4 @@
-FROM ros2-humble-image-built-raspi as humble-image-raspi
+FROM ghcr.io/pranavjain110/ros2_docker/ros2-humble-image-built/raspi as humble-image-raspi
 
 RUN apt update
 
